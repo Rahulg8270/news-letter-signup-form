@@ -1,226 +1,119 @@
+/* ==========================================================================
+   VARIABLES / DESIGN TOKENS
+   ========================================================================== */
+
 :root {
-  --red: hsl(4, 100%, 67%);
+  /* Colors */
 
-  --blue-800: hsl(234, 29%, 20%);
-  --blue-700: hsl(235, 18%, 26%);
+  /* Action Tokens */
+  --action-primary: hsl(234, 29%, 20%);
+  --action-secondary: hsl(4, 100%, 67%);
 
-  --grey: hsl(0, 0%, 58%);
-  --white: hsl(0, 0%, 100%);
+  /* Surface Tokens */
+  --surface-page: hsl(0, 97%, 85%);
+  --surface-card: hsl(0, 0%, 100%);
+  --surface-modal: burlywood;
+
+  /* Text Tokens */
+  --text-main: hsl(235, 18%, 26%);
+  --text-muted: hsl(0, 0%, 58%);
+
+  /* Status Tokens */
+  --status-error: hsl(4, 100%, 67%);
+
+  /* Spacing */
 
   --step-0: clamp(1.125rem, 1.0849rem + 0.1835vw, 1.25rem);
 
   --step-4: clamp(2.3328rem, 2.1019rem + 1.0554vw, 3.0518rem);
-  --step-5: clamp(2.7994rem, 2.4733rem + 1.4904vw, 3.8147rem);
-}
-/* @link https://utopia.fyi/type/calculator?c=350,18,1.2,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-* {
+  --step-5: clamp(2.7994rem, 2.4733rem + 1.4904vw, 3.8147rem);
+
+  /*Spacing Scale(The Rythm)  */
+  --space-xs: calc(var(--step-0) * 0.5);
+  --space-sm: var(--step-0);
+  --space-md: calc(var(--step-0) * 1.5);
+  --space-lg: var(--step-4);
+  --space-xl: var(--step-5);
+
+  /* Typography */
+  --font-main: "Roboto", sans-serif;
+  --font-bold: 700;
+  --font-regular: 400;
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
 
 body {
-  /* position: relative; */
-  height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
-  color: var(--blue-800);
+  font-family: var(--font-main);
+  color: var(--text-main);
+  margin: 0;
   font-size: var(--step-0);
+  line-height: 1.5;
+  background-color: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-#main-content {
-  transition: all 0.3s ease;
-}
-img {
+
+img,
+picture,
+svg {
   display: block;
   max-width: 100%;
-  /* min-width: 300px; */
-  width: 100%;
-  margin-bottom: 2.5rem;
-}
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1rem;
-}
-li::before {
-  content: url("./assets/images/icon-list.svg");
-  position: absolute;
-  left: 0;
-}
-.signup-content-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.signup-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-size: 1rem;
-  line-height: 150%;
-}
-.signup-content h1 {
-  font-weight: 700;
-  font-size: var(--step-5);
-  line-height: 100%;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.formInput {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-.formInput input[type="email"] {
-  padding: 1rem 1.5rem;
-  color: var(--grey);
-  border-radius: 0.625rem;
-  border: 1px solid var(--grey);
-  font-size: 1rem;
-}
-input[type="email"]:invalid {
-  border: 2px solid var(--red);
-  color: var(--red);
-}
-.formInput label {
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 150%;
-  display: flex;
-  justify-content: space-between;
-}
-.formInput .error {
-  color: var(--red);
-}
-button:hover {
-  cursor: pointer;
-}
-button:active {
-  background-color: var(--red);
-}
-button[type="submit"] {
-  background-color: var(--blue-800);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--white);
-  padding: 1rem 4.5rem;
-  border-radius: 0.625rem;
-}
-button[type="submit"]:active {
-  background-color: var(--red);
+h1,
+h2.h3 {
+  line-height: 1.1;
 }
 
-.success-modal {
-  background-color: burlywood;
-  max-width: 504px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 64px;
-  gap: 32px;
-  border-radius: 20px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  bottom: -15%;
-  color: var(--blue-700);
-  /* display: flex; */
-  /* flex-direction: column; */
-}
-.success-modal h2 {
-  font-size: var(--step-4);
-}
-.hidden {
-  display: none;
-}
-.open-modal {
-  display: flex;
-  flex-direction: column;
-}
-.close-modal {
-  display: none;
-}
-.success-modal h2 {
-  font-size: 56px;
-  line-height: 100%;
-}
-.success-modal button {
-  padding: 15px 30px;
-  background-color: var(--blue-800);
-  color: var(--white);
-  font-weight: 700;
-  border-radius: 8px;
-}
-.success-modal img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0;
+/* LAYOUT */
+
+.l-full-screen-center {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
 }
 
-.blur-background {
-  filter: blur(8px);
-  pointer-events: none;
-  user-select: none;
+/* COMPONENTS */
+.newsletter {
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  grid-template-areas:
+    "image"
+    "content";
+  gap: var(--space-md);
+  margin: 0 auto;
+  align-items: center;
+  max-width: 900px;
+  padding: var(--space-md);
+  background-color: var(--surface-card);
 }
-@media screen and (min-width: 48rem) {
-  main {
-    display: flex;
-    max-width: 116rem;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    margin: 2rem;
-  }
-  .signup-illustration {
-    order: 2;
-  }
-  .success-modal {
-    height: 520px;
+.newsletter__image {
+  grid-area: image;
+}
+.newsletter__content {
+  grid-area: content;
+}
+
+@media screen and (min-width: 768px) {
+  .newsletter {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content image";
   }
 }
+/* Utility Classes */
+/* layout utlity */
 
-@media (21.875rem <= width <= 48rem) {
-  body {
-    padding: 40px;
-  }
-  main {
-    flex-direction: column;
-    border-radius: 1.25rem;
-    margin: 2.5rem;
-    padding: 40px;
-  }
-  .signup-illustration {
-    order: -1;
-    width: 100%;
-  }
-}
-
-/* responsive layout view in tablet and mobile including focus on spacing */
-/* done */
-/* fluid typography */
-
-/* scalable css and js */
-/* css architecture */
-/* js scalable */
-
-/* write a good readme */
+/* spacing utility */
+/* typography utitlity */
