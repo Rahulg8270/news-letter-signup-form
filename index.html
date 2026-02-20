@@ -62,7 +62,10 @@
             <div class="newsletter__field stack-small">
               <label for="email" class="newsletter__label stack-horizontal">
                 <span class="newsletter__label-text"> Email address </span>
-                <span class="newsletter__label-error" aria-live="polite"
+                <span
+                  class="newsletter__label-error"
+                  aria-live="polite"
+                  aria-atomic="true"
                   >Valid email required</span
                 >
               </label>
@@ -85,7 +88,14 @@
       </section>
     </main>
 
-    <dialog id="success-modal" class="modal-Container border-rad">
+    <dialog
+      id="success-modal"
+      class="modal-Container border-rad"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal__title"
+      aria-describedby="modal__description"
+    >
       <img
         class="modal__image-success"
         src="./assets/images/icon-success.svg"

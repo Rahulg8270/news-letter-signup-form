@@ -4,8 +4,9 @@ const emailInput = document.querySelector(".newsletter__input");
 const successModal = document.querySelector("#success-modal");
 const closeModalBtn = document.querySelector(".modal__close-btn");
 const modalEmailDisplay = document.querySelector(".modal__email-display");
+let lastFocusedElement;
 
-emailInput.addEventListener("input", (event) => validateEmail(event));
+// emailInput.addEventListener("input", (event) => validateEmail(event));
 
 newsletterForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -16,7 +17,9 @@ newsletterForm.addEventListener("submit", (event) => {
   modalEmailDisplay.textContent = userEmail;
 
   if (emailInput.checkValidity()) {
+    lastFocusedElement = document.activeElement;
     successModal.showModal();
+    successModal.focus();
   }
 });
 
@@ -31,4 +34,5 @@ closeModalBtn.addEventListener("click", (event) => {
 
 successModal.addEventListener("close", () => {
   newsletterForm.reset();
+  if (lastFocusedElement) lastFocusedElement.focus();
 });

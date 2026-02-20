@@ -41,12 +41,6 @@
   --font-main: "Roboto", sans-serif;
   --font-bold: 700;
   --font-regular: 400;
-
-  /* --font-xs: clamp(0.7rem, 0.7rem + 0.17vw, 0.95rem);
-  --font-sm: clamp(0.7rem, 0.7rem + 0.17vw, 0.95rem);
-  --font-md: clamp(0.7rem, 0.7rem + 0.17vw, 0.95rem);
-  --font-lg: clamp(0.7rem, 0.7rem + 0.17vw, 0.95rem);
-  --font-xl: clamp(0.7rem, 0.7rem + 0.17vw, 0.95rem); */
 }
 
 /* ==========================================================================
@@ -96,6 +90,7 @@ h3 {
 }
 
 /* COMPONENTS */
+
 .newsletter {
   display: grid;
   grid-template-areas:
