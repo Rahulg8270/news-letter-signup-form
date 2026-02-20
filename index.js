@@ -1,5 +1,5 @@
 const newsletterForm = document.querySelector(".newsletter__form");
-const emailErrorLabel = document.querySelector(".newsletter__label-error");
+// const emailErrorLabel = document.querySelector(".newsletter__label-error");
 const emailInput = document.querySelector(".newsletter__input");
 const successModal = document.querySelector("#success-modal");
 const closeModalBtn = document.querySelector(".modal__close-btn");
@@ -23,9 +23,9 @@ newsletterForm.addEventListener("submit", (event) => {
   }
 });
 
-function validateEmail(event) {
-  console.log(event);
-}
+// function validateEmail(event) {
+//   console.log(event);
+// }
 
 closeModalBtn.addEventListener("click", (event) => {
   successModal.close();

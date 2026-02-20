@@ -41,6 +41,8 @@
   --font-main: "Roboto", sans-serif;
   --font-bold: 700;
   --font-regular: 400;
+
+  --fs-xs: font-size: clamp(0.7rem, 1vw + 0.4rem, 0.9rem);
 }
 
 /* ==========================================================================
@@ -103,7 +105,11 @@ h3 {
   padding: var(--space-md);
   background-color: var(--surface-card);
   border-radius: 2rem;
-  width: 90%;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+.newsletter:hover {
+  transform: scale(1.05);
 }
 .newsletter__image {
   grid-area: image;
@@ -132,12 +138,12 @@ h3 {
 }
 
 .newsletter__label-text {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: var(--fs-xs);
+  font-weight: var(--font-bold);
 }
 .newsletter__label-error {
   display: none;
-  font-size: 0.9rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--status-error);
   overflow-wrap: break-word;
@@ -164,7 +170,7 @@ h3 {
   margin: auto;
   padding: var(--space-lg);
   border: none;
-  width: 80%;
+  width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -184,7 +190,7 @@ h3 {
   background-color: rgba(36, 39, 66, 0.8);
   backdrop-filter: blur(5px);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   .newsletter {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "content image";
