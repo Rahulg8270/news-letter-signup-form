@@ -10,7 +10,7 @@
   --action-secondary: hsl(4, 100%, 67%);
 
   /* Surface Tokens */
-  --surface-page: hsl(0, 97%, 85%);
+  --surface-page: #36384d;
   --surface-card: hsl(0, 0%, 100%);
   --surface-modal: burlywood;
 
@@ -80,8 +80,10 @@ svg {
 }
 
 h1,
-h2.h3 {
+h2,
+h3 {
   line-height: 1.1;
+  /* line: height 1px; */
   font-size: var(--step-4);
 }
 
@@ -100,12 +102,13 @@ h2.h3 {
     "image"
     "content";
   gap: var(--space-md);
-  margin: 0 auto;
+  margin: auto;
   align-items: center;
-  max-width: 900px;
+  max-width: 56.25rem;
   padding: var(--space-md);
   background-color: var(--surface-card);
-  border-radius: 20px;
+  border-radius: 2rem;
+  width: 90%;
 }
 .newsletter__image {
   grid-area: image;
@@ -130,11 +133,26 @@ h2.h3 {
   color: var(--text-muted);
   border: 1px solid var(--action-primary);
   border-radius: 4px;
+  outline: none;
 }
+
 .newsletter__label-text {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
+.newsletter__label-error {
+  display: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--status-error);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.newsletter__field:has(.newsletter__input:not(:placeholder-shown):invalid)
+  .newsletter__label-error {
+  display: inline;
+}
+
 .btn {
   padding-inline: var(--space-xs);
   padding-block: var(--space-sm);
@@ -145,6 +163,32 @@ h2.h3 {
   font-weight: 600;
 }
 
+/* success modal */
+.modal-Container {
+  max-width: 34rem;
+  margin: auto;
+  padding: var(--space-lg);
+  border: none;
+  width: 80%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+.modal-Container h2 {
+  font-size: var(--step-4);
+}
+.modal-Container img {
+  align-self: self-start;
+}
+.modal-Container[open] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.modal-Container::backdrop {
+  background-color: rgba(36, 39, 66, 0.8);
+  backdrop-filter: blur(5px);
+}
 @media screen and (min-width: 768px) {
   .newsletter {
     grid-template-columns: 1fr 1fr;
@@ -153,6 +197,10 @@ h2.h3 {
 }
 
 /* Utility Classes */
+
+.border-rad {
+  border-radius: 2rem;
+}
 
 /* layout utlity */
 .stack {

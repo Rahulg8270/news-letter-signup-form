@@ -27,7 +27,7 @@
   <body>
     <!-- Sign-up form start -->
     <main class="l-full-screen-center">
-      <section class="newsletter">
+      <section class="newsletter border-rad">
         <section class="newsletter__image">
           <picture>
             <source
@@ -62,7 +62,9 @@
             <div class="newsletter__field stack-small">
               <label for="email" class="newsletter__label stack-horizontal">
                 <span class="newsletter__label-text"> Email address </span>
-                <span class="newsletter__label-error" aria-live="polite"></span>
+                <span class="newsletter__label-error" aria-live="polite"
+                  >Valid email required</span
+                >
               </label>
               <input
                 name="email"
@@ -72,6 +74,7 @@
                 minlength="8"
                 required
                 class="newsletter__input"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
               />
             </div>
             <button class="btn newsletter__submit-btn" type="submit">
@@ -82,7 +85,7 @@
       </section>
     </main>
 
-    <dialog id="newsletter-modal" class="modal">
+    <dialog id="success-modal" class="modal-Container border-rad">
       <img
         class="modal__image-success"
         src="./assets/images/icon-success.svg"
@@ -91,8 +94,8 @@
       <h2 class="modal__title">Thanks for subscribing!</h2>
       <p class="modal__description">
         A confirmation email has been sent to
-        <span class="modal__email-subscribed"></span>. Please open it and click
-        the button inside to confirm your subscription.
+        <span class="modal__email-display"></span>. Please open it and click the
+        button inside to confirm your subscription.
       </p>
       <button id="close-modal" class="btn modal__close-btn">
         Dismiss message
